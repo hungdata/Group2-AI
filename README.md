@@ -1,4 +1,4 @@
-# GROUP 2 — Booking System
+# GROUP 2 — Online Booking System
 
 ## Giới thiệu
 Dự án thực hành Git Flow của Nhóm 2.  
