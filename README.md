@@ -298,108 +298,165 @@ Kết quả mong đợi:
 
 ---
 
-## 🎤 Kịch bản thuyết trình với thầy
+## 🎬 Kịch bản thuyết trình thực tế — Từng bước chi tiết
 
-> Thứ tự lên trình bày: **Leader → Member 1 → Member 2 → Member 3 → Member 4**  
-> Mỗi người trình bày phần của mình, mở GitHub lên chiếu trực tiếp.
-
----
-
-### 👑 LEADER — Lên đầu tiên (~2 phút)
-
-**Nói gì:**
-> *"Em là leader của nhóm. Em không push code trực tiếp vào develop mà quản lý toàn bộ luồng Git Flow của nhóm.*
->
-> *Đầu tiên em tạo repo trên GitHub, tạo nhánh develop làm nhánh chính để team làm việc. Em phân công mỗi thành viên một ticket riêng, mỗi người tạo feature branch từ develop, không ai được push thẳng vào develop hay main.*
->
-> *Khi thành viên tạo Pull Request, em là người vào GitHub request reviewer cho đúng người. Sau khi reviewer approve và test pass, em mới merge PR vào develop. Em cũng kiểm soát thứ tự merge — cụ thể merge PR của Member 3 trước để tạo ra conflict cho Member 4 thực hành."*
-
-**Chiếu lên GitHub:**
-- Trang chính repo → cho thầy thấy có `main` và `develop`
-- Tab **Pull requests** → các PR đã được merge
-- Tab **Insights → Network** → thấy sơ đồ nhánh
+> **Thứ tự lên bảng:** Leader → Member 1 → Member 2 → Member 3 → Member 4  
+> Mỗi người **mở sẵn GitHub + Terminal trước khi lên**. Chiếu màn hình lên máy chiếu.
 
 ---
 
-### 👤 MEMBER 1 — Lên thứ hai (~3 phút)
+### 🖥️ Chuẩn bị trước khi lên bảng — Tất cả làm
 
-**Nói gì:**
-> *"Em làm ticket US-103 — tạo chức năng đặt lịch hẹn.*
->
-> *Em bắt đầu bằng cách checkout develop, pull code mới nhất về rồi tạo nhánh feature/US-103-create-booking. Em viết hàm create_booking() trong file src/booking.py — hàm này nhận vào tên khách hàng, ngày và giờ. Em có thêm validation: nếu thiếu bất kỳ trường nào thì raise ValueError để tránh tạo lịch hẹn rỗng.*
->
-> *Sau khi viết xong em chạy test để kiểm tra — tất cả PASSED. Em push lên GitHub và tạo Pull Request vào develop. Em điền mô tả PR đầy đủ và chọn Member 2 làm reviewer.*
->
-> *Member 2 có để lại comment yêu cầu em kiểm tra thêm trường hợp... Em đọc hiểu comment, sửa lại và push thêm một commit nữa. Sau khi Member 2 approve thì báo Leader merge."*
-
-**Chiếu lên GitHub:**
-- Nhánh `feature/US-103-create-booking`
-- PR của mình — phần **Files changed** cho thầy thấy code
-- Phần **Conversation** — comment của Member 2 và commit sửa lại
+```
+1. Mở trình duyệt → https://github.com/hungdata/Group2-AI
+2. Đăng nhập GitHub của mình
+3. Mở sẵn 3 tab: Trang repo chính | Tab Pull Requests | Tab Insights
+4. Mở Terminal hoặc VS Code, đã cd vào thư mục project
+```
 
 ---
 
-### 👤 MEMBER 2 — Lên thứ ba (~3 phút)
+### 👑 LEADER — Kịch bản thực tế từng bước (~2 phút)
 
-**Nói gì:**
-> *"Em có hai việc trong buổi này: code ticket US-104 và review PR của Member 1.*
->
-> *Về US-104 — em viết hàm cancel_booking() để huỷ lịch hẹn. Hàm này kiểm tra booking có hợp lệ không — nếu là None hoặc không có trường status thì raise ValueError. Sau đó đổi status thành cancelled và trả về.*
->
-> *Về việc review — khi Member 1 tạo PR, em vào tab Files changed đọc từng dòng code. Em để lại nhận xét cụ thể về phần validation còn thiếu. Đây không phải chọn đại mà em đọc hiểu logic rồi mới comment. Khi Member 1 sửa xong và push lại, em kiểm tra lại rồi mới approve.*
->
-> *Cuối buổi em cũng review PR của Member 4 sau khi bạn ấy resolve conflict xong."*
+**[Bước 1]** Đứng lên, giới thiệu:
+> *"Dạ em là Leader của nhóm 2. Em xin trình bày tổng quan về cách nhóm em tổ chức Git Flow."*
 
-**Chiếu lên GitHub:**
-- PR của mình — tab **Files changed**
-- PR của Member 1 — phần **Conversation** — comment em đã để lại
-- Nút **Approved** trên PR Member 1
+**[Bước 2]** Chiếu trang chính repo — **click vào dropdown nhánh** (góc trái):
+> *"Đây là repo của nhóm em. Nhóm có 2 nhánh chính — main là bản production, develop là nhánh team làm việc hàng ngày. Không ai được push thẳng vào hai nhánh này."*
 
----
+**[Bước 3]** Click tab **Pull requests**:
+> *"Đây là tất cả Pull Request nhóm tạo trong buổi. Mỗi PR ứng với một ticket của từng thành viên. Mọi thay đổi đều phải qua PR và được review trước khi merge."*
 
-### 👤 MEMBER 3 — Lên thứ tư (~2 phút)
+**[Bước 4]** Click **Insights → Network**:
+> *"Đây là sơ đồ nhánh — thầy thấy develop là gốc, mỗi người tạo nhánh feature riêng từ đó, làm xong merge trở lại qua PR."*
 
-**Nói gì:**
-> *"Em làm ticket US-105 — vai trò của em trong bài là tạo ra conflict cho Member 4 thực hành giải quyết.*
->
-> *Em tạo nhánh feature/US-105-update-readme-A từ develop. Em sửa dòng tiêu đề đầu tiên trong README.md thành 'Online Booking System'. Cùng lúc đó Member 4 cũng đang sửa đúng dòng đó nhưng thành 'Appointment Booking System' — hai người làm song song, không biết nội dung của nhau.*
->
-> *Em push lên và tạo PR. Leader merge PR của em trước. Lúc này develop đã có nội dung của em, còn nhánh của Member 4 vẫn là nội dung khác — đây chính là lúc conflict xảy ra."*
-
-**Chiếu lên GitHub:**
-- Nhánh `feature/US-105-update-readme-A`
-- PR của mình đã được merge — thấy trạng thái **Merged**
-- Commit history của develop — thấy commit của mình đã vào
+**[Bước 5]** Kết:
+> *"Em kiểm soát thứ tự merge — merge PR Member 3 trước rồi mới để Member 4 cập nhật develop — đây là bước cố ý tạo conflict cho phần B. Dạ em xin hết, mời Member 1."*
 
 ---
 
-### 👤 MEMBER 4 — Lên cuối (~4 phút) — phần quan trọng nhất
+### 👤 MEMBER 1 — Kịch bản thực tế từng bước (~3 phút)
 
-**Nói gì:**
-> *"Em làm ticket US-106 — nhiệm vụ của em là tạo conflict và tự giải quyết nó.*
->
-> *Em tạo nhánh feature/US-106-update-readme-B từ develop — lúc này develop chưa có thay đổi của Member 3. Em sửa cùng dòng tiêu đề thành 'Appointment Booking System' rồi push lên.*
->
-> *Sau khi Leader merge PR của Member 3, em chạy git fetch origin rồi git merge origin/develop. Git lập tức báo CONFLICT trong README.md.*
->
-> *Em mở file ra và thấy ký hiệu conflict — phần HEAD là của em, phần bên dưới là của Member 3 đã được merge vào develop. Em không chọn đại một bên — em đọc cả hai, hiểu rằng một bên muốn nhấn mạnh 'Online', một bên muốn nhấn mạnh 'Appointment'. Nhóm thảo luận và thống nhất giữ cả hai ý nghĩa: 'Online Appointment Booking System'.*
->
-> *Em xoá hết ký hiệu conflict, giữ lại tên đã thống nhất, chạy kiểm tra lại rồi commit resolve và push. PR tự cập nhật, Member 2 review và approve, Leader merge."*
+**[Bước 1]** Giới thiệu:
+> *"Dạ em làm ticket US-103 — chức năng tạo lịch hẹn."*
 
-**Chiếu lên GitHub:**
-- PR của mình — tab **Commits** — thấy commit resolve conflict
-- Tab **Files changed** — thấy dòng tiêu đề đã được resolve
-- Kéo xuống phần **Conversation** — thấy comment approve của Member 2
+**[Bước 2]** Mở Terminal, chiếu lịch sử commit:
+```bash
+git log --oneline
+```
+> *"Đây là lịch sử commit của em. Em tạo nhánh từ develop, viết code rồi commit theo chuẩn: feat(booking): implement create_booking."*
+
+**[Bước 3]** Vào GitHub → click PR của mình → tab **Files changed**:
+> *"Đây là code em viết. Hàm create_booking nhận 3 tham số: name, date, time. Em kiểm tra từng trường — nếu rỗng thì raise ValueError. Nếu hợp lệ trả về dict có status là confirmed."*
+→ Chỉ tay vào từng phần code
+
+**[Bước 4]** Click tab **Conversation** trong PR:
+> *"Member 2 để lại comment tại đây."*
+→ Đọc to nội dung comment cho thầy nghe
+> *"Em đọc hiểu comment, sửa lại và push thêm một commit. Thầy thấy PR có 2 commit — commit đầu là lúc mới push, commit sau là lần sửa theo review."*
+
+**[Bước 5]** Kết:
+> *"Sau khi Member 2 approve, em báo Leader và Leader merge PR vào develop. Dạ em xin hết, mời Member 2."*
+
+---
+
+### 👤 MEMBER 2 — Kịch bản thực tế từng bước (~3 phút)
+
+**[Bước 1]** Giới thiệu:
+> *"Dạ em có 2 việc: code ticket US-104 và làm reviewer cho Member 1 và Member 4."*
+
+**[Bước 2]** Vào GitHub → PR của mình → tab **Files changed**:
+> *"Đây là code US-104 của em — hàm cancel_booking. Em kiểm tra nếu booking là None hoặc không có key status thì raise ValueError. Nếu hợp lệ thì đổi status thành cancelled và trả về."*
+
+**[Bước 3]** Mở Terminal, chạy test trực tiếp:
+```bash
+python tests/test_booking.py
+```
+> *"Đây là kết quả — tất cả 7 test PASSED. Em chạy test trước khi tạo PR để chắc chắn code đúng."*
+
+**[Bước 4]** Vào PR của **Member 1** → tab **Conversation**:
+> *"Đây là PR của Member 1 — em để lại comment tại đây."*
+→ Click vào comment, đọc to cho thầy nghe
+> *"Em không chỉ bấm Approve cho có — em đọc từng dòng code, hiểu logic rồi mới nhận xét. Sau khi Member 1 sửa và push lại, em kiểm tra lại rồi mới Approve."*
+→ Chỉ vào dấu ✅ Approved trong PR
+
+**[Bước 5]** Kết:
+> *"Cuối buổi em cũng review PR của Member 4 sau khi bạn resolve conflict xong. Dạ em xin hết, mời Member 3."*
+
+---
+
+### 👤 MEMBER 3 — Kịch bản thực tế từng bước (~2 phút)
+
+**[Bước 1]** Giới thiệu:
+> *"Dạ em làm ticket US-105 — vai trò em là tạo conflict để nhóm thực hành giải quyết."*
+
+**[Bước 2]** Vào GitHub → click PR của mình (trạng thái **Merged** màu tím):
+> *"Đây là PR của em — trạng thái Merged nghĩa là đã được merge vào develop thành công."*
+
+**[Bước 3]** Click tab **Files changed**:
+> *"Dòng màu đỏ là nội dung cũ, dòng màu xanh là nội dung em sửa — tiêu đề thành 'Online Booking System'. Chỉ một dòng thay đổi nhưng đúng dòng đó Member 4 cũng sửa ở nhánh khác — đây là nguyên nhân conflict."*
+
+**[Bước 4]** Kết:
+> *"Sau khi Leader merge PR của em trước, develop có 'Online Booking System'. Nhánh Member 4 vẫn là 'Appointment Booking System' — conflict đã được tạo ra. Dạ em xin hết, mời Member 4."*
+
+---
+
+### 👤 MEMBER 4 — Kịch bản thực tế từng bước (~4 phút) — quan trọng nhất
+
+**[Bước 1]** Giới thiệu:
+> *"Dạ em làm ticket US-106 — tạo conflict và giải quyết conflict."*
+
+**[Bước 2]** Mở Terminal, chiếu lịch sử commit:
+```bash
+git log --oneline
+```
+> *"Thầy thấy 2 commit — commit đầu là lúc em sửa tiêu đề. Commit thứ hai là 'resolve: merge conflict' — đây là lúc em giải quyết xong."*
+
+**[Bước 3]** Giải thích conflict xảy ra — chiếu Terminal:
+> *"Sau khi Leader merge PR Member 3, em chạy:"*
+```bash
+git fetch origin
+git merge origin/develop
+```
+> *"Git báo ngay: CONFLICT in README.md — Automatic merge failed."*
+
+**[Bước 4]** Mở file README.md, chiếu nội dung conflict lên:
+```
+<<<<<<< HEAD
+# GROUP 2 — Appointment Booking System
+=======
+# GROUP 2 — Online Booking System
+>>>>>>> origin/develop
+```
+> *"Phần trên dấu ======= là code của em. Phần dưới là code Member 3 đã vào develop. Git không tự biết chọn bên nào nên báo conflict để mình tự quyết định."*
+
+**[Bước 5]** Giải thích cách resolve — quan trọng nhất:
+> *"Em không chọn đại một bên — 'Online' nói lên tính năng trực tuyến, 'Appointment' nói lên chức năng đặt lịch. Nhóm em thảo luận và thống nhất giữ cả hai ý nghĩa: 'Online Appointment Booking System'. Em xoá hết ký hiệu <<<, ===, >>> và sửa thành tên đã thống nhất."*
+
+**[Bước 6]** Vào GitHub → PR của mình → tab **Commits**:
+> *"PR của em có 2 commit — commit đầu khi tạo nhánh, commit sau là resolve conflict."*
+
+**[Bước 7]** Tab **Files changed**:
+> *"Kết quả cuối cùng — tiêu đề là 'Online Appointment Booking System', không còn ký hiệu conflict nào."*
+
+**[Bước 8]** Tab **Conversation**:
+> *"Member 2 vào review và Approve tại đây. Sau đó Leader merge PR vào develop — bài thực hành phần B hoàn thành."*
+
+**[Bước 9]** Kết toàn nhóm:
+> *"Bài học em rút ra: conflict không đáng sợ nếu hiểu ý nghĩa từng thay đổi. Phải đọc cả hai phía, thống nhất với nhóm rồi mới resolve — không chọn đại. Dạ nhóm em xin hết, cảm ơn thầy."*
 
 ---
 
 ### ❓ Câu hỏi thầy hay hỏi — và cách trả lời
 
-| Câu hỏi | Người trả lời | Gợi ý trả lời |
+| Câu hỏi | Người trả lời | Trả lời |
 |---|---|---|
-| *"Tại sao không push thẳng vào develop?"* | Leader | Để đảm bảo mọi thay đổi đều được review, tránh lỗi vào nhánh chính |
-| *"PR là gì, tại sao cần?"* | Member 1 hoặc 2 | PR là yêu cầu merge code, giúp reviewer kiểm tra trước khi tích hợp |
-| *"Conflict xảy ra khi nào?"* | Member 4 | Khi 2 người sửa cùng một vị trí trong cùng một file trên hai nhánh khác nhau |
+| *"Tại sao không push thẳng vào develop?"* | Leader | Để mọi thay đổi đều được review, tránh lỗi vào nhánh chính |
+| *"PR là gì, tại sao cần?"* | Member 1 | PR là yêu cầu merge code, giúp reviewer kiểm tra trước khi tích hợp |
+| *"Conflict xảy ra khi nào?"* | Member 4 | Khi 2 người sửa cùng vị trí trong cùng file trên 2 nhánh khác nhau |
 | *"Resolve conflict như thế nào?"* | Member 4 | Mở file, đọc hiểu cả hai thay đổi, thống nhất nội dung, xoá ký hiệu, commit lại |
-| *"Reviewer có trách nhiệm gì?"* | Member 2 | Đọc code, để lại nhận xét cụ thể, chỉ approve khi code đúng và đủ |
-| *"Leader làm gì trong Git Flow?"* | Leader | Không code trực tiếp trên develop, phân công, kiểm soát PR, merge theo đúng quy trình |
+| *"Reviewer có trách nhiệm gì?"* | Member 2 | Đọc code, nhận xét cụ thể, chỉ approve khi code đúng và đủ |
+| *"Leader làm gì trong Git Flow?"* | Leader | Không code trực tiếp vào develop, phân công, kiểm soát PR, merge đúng quy trình |
+
+
+
