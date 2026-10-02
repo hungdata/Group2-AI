@@ -45,8 +45,10 @@ def cancel_booking(booking: dict) -> dict:
     Raises:
         ValueError: Nếu booking là None hoặc không có key "status"
     """
-    # TODO (Member 2): Kiểm tra booking có phải None không → raise ValueError
-    # TODO (Member 2): Kiểm tra booking có key "status" không → raise ValueError
-    # TODO (Member 2): Đổi booking["status"] thành "cancelled"
-    # TODO (Member 2): Trả về booking đã cập nhật
-    pass
+    if booking is None:
+        raise ValueError("Lịch hẹn không được là None")
+    if "status" not in booking:
+        raise ValueError("Lịch hẹn không có trường status")
+
+    booking["status"] = "cancelled"
+    return booking
