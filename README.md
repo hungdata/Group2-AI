@@ -1,4 +1,4 @@
-# GROUP 2 — Booking System
+# GROUP 2 — Appointment Booking System
 
 > 🔗 **Repo:** https://github.com/hungdata/Group2-AI  
 > 📌 **Default branch:** `develop` — tất cả làm việc từ đây
