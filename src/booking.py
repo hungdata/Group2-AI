@@ -22,11 +22,19 @@ def create_booking(name: str, date: str, time: str) -> dict:
     Raises:
         ValueError: Nếu name, date hoặc time bị để trống
     """
-    # TODO (Member 1): Kiểm tra name có rỗng không → raise ValueError
-    # TODO (Member 1): Kiểm tra date có rỗng không → raise ValueError
-    # TODO (Member 1): Kiểm tra time có rỗng không → raise ValueError
-    # TODO (Member 1): Trả về dict gồm name, date, time, status="confirmed"
-    pass
+    if not name:
+        raise ValueError("Tên khách hàng không được để trống")
+    if not date:
+        raise ValueError("Ngày đặt lịch không được để trống")
+    if not time:
+        raise ValueError("Giờ đặt lịch không được để trống")
+
+    return {
+        "name": name,
+        "date": date,
+        "time": time,
+        "status": "confirmed"
+    }
 
 
 # ================================================================
